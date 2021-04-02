@@ -1,2 +1,2 @@
-# DZan
+# Dzan
 [dʒan]
