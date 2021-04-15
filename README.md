@@ -4,7 +4,7 @@
 
 武將均為單姓單名，姓候選字125字，名候選字192字，見[姓名候選用字清單](https://github.com/Ayukawayen/Dzan/blob/Pre-Alpha/%E5%A7%93%E5%90%8D%E5%80%99%E9%81%B8%E7%94%A8%E5%AD%97%E6%B8%85%E5%96%AE.md)，計24000姓名，武將之姓名不會重複。
 
-姓名在武將產生時由伺服器依隨機演算法填入，與Token ID無關。
+姓名在武將產生時由伺服器填入，與Token ID無關。
 
 拼音方案採[國語注音符號第二式](https://zh.wikipedia.org/%E5%9C%8B%E8%AA%9E%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F%E7%AC%AC%E4%BA%8C%E5%BC%8F)
 
