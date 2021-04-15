@@ -3,6 +3,8 @@
 Vue.component('v_commander', {
 	template: `
 		<div v-if="c.id" class="commander">
+			<div class="version">α0</div>
+			
 			<div class="avatar">
 				<img :src="c.avatar" :style="{ transform: 'scale(' + c.avatarScale[0] + ',' + c.avatarScale[1] + ')' }" />
 				<div class="claz"><span>{{ c.clazIcon }}</span></div>

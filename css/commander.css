@@ -40,6 +40,7 @@ main {
 
 .commander >.avatar  { position:absolute; top:2.75rem; width:100%; }
 .commander >.name    { position:absolute; top:0; left:0; width:100%; }
+.commander >.version { position:absolute; top:0; left:0; }
 .commander >.rank    { position:absolute; top:0; right:0; }
 .commander >.attr    { position:absolute; bottom:9rem; left:0; }
 .commander >.solider { position:absolute; bottom:9rem; right:0; }
@@ -99,6 +100,14 @@ ruby > rt {
 .commander >.name >.pinyin {
 	font-size:1rem;
 	font-family:"Arial Narrow";
+}
+
+.version {
+	text-align:center;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    border: double 4px #000;
 }
 
 .rank {
