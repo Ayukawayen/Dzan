@@ -19,7 +19,7 @@
 
 ### 姓名拼音 ###
 
-拼音方案採[國語注音符號第二式](https://zh.wikipedia.org/%E5%9C%8B%E8%AA%9E%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F%E7%AC%AC%E4%BA%8C%E5%BC%8F)
+拼音方案採[國語注音符號第二式](https://zh.wikipedia.org/wiki/%E5%9C%8B%E8%AA%9E%E6%B3%A8%E9%9F%B3%E7%AC%A6%E8%99%9F%E7%AC%AC%E4%BA%8C%E5%BC%8F)
 
 
 ## 武將屬性 ##
