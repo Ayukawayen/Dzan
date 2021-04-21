@@ -1,5 +1,7 @@
 # Dzan Pre-Alpha
 
+**(Out-of-date. This document may not match current version)**
+
 ### [Commander Viewer](https://ayukawayen.github.io/Dzan/commander.html) ###
 
 ![Sample Commander Image](https://images.plurk.com/1vTC0zBuHjRJlqfwdFWSH7.png)
