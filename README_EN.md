@@ -1,6 +1,4 @@
-# Dzan Pre-Alpha
-
-**(Out-of-date. This document may not match current version)**
+# Dzan Pre-Alpha **(Out-of-date. This document may not match current version)**
 
 ### [Commander Viewer](https://ayukawayen.github.io/Dzan/commander.html) ###
 
