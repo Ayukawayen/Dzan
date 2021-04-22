@@ -2,7 +2,7 @@
 
 **這個專案目前處於Pre-Alpha階段，所有Token在下個階段後不會繼續維護。可能存在重大BUG。請自行評估風險。**
 
-### [Commander Viewer](https://ayukawayen.github.io/Dzan/commander.html) ###
+### [Commander Viewer](https://ayukawayen.github.io/Dzan/Pre-Alpha/commander.html) ###
 
 ![Sample Commander Image](https://images.plurk.com/1vTC0zBuHjRJlqfwdFWSH7.png)
 
