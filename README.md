@@ -1,6 +1,6 @@
-# Dzan Pre-Alpha
+# Dzan Alpha 1
 
-**這個專案目前處於Pre-Alpha階段，所有Token在下個階段後不會繼續維護。可能存在重大BUG。請自行評估風險。**
+**這個專案目前處於Alpha階段，所有Token在下個階段後不會繼續維護。可能存在重大BUG。請自行評估風險。**
 
 ### [Commander Viewer](https://ayukawayen.github.io/Dzan/commander.html) ###
 
