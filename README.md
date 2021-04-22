@@ -4,7 +4,7 @@
 
 ### [Commander Viewer](https://ayukawayen.github.io/Dzan/commander.html) ###
 
-![Sample Commander Image](https://images.plurk.com/1vTC0zBuHjRJlqfwdFWSH7.png)
+![Sample Commander Image](https://images.plurk.com/1LIPqYjasxqQiz4oGyhnWh.png)
 
 ## 武將姓名 ##
 
