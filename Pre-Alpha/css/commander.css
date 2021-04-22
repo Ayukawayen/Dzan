@@ -1,0 +1,199 @@
+* {
+	box-sizing:border-box;
+	line-height:1.25;
+}
+
+html, body {
+	font-size:16px;
+	font-family: sans-serif;
+	
+	margin:0;
+	padding:0;
+	
+	background-color:#ccc;
+}
+
+main {
+	text-align:center;
+	
+	padding:1rem;
+}
+
+.commander {
+	display:inline-block;
+	margin:1rem 0 0;
+
+	vertical-align: middle;
+}
+
+.commander {
+	position:relative;
+	
+	width:15rem;
+	height:22.5rem;
+	
+	border-radius:0.5rem;
+	
+	background-color:#eee;
+	border:solid 0.5rem #000;
+}
+
+.commander >.avatar  { position:absolute; top:2.75rem; width:100%; }
+.commander >.name    { position:absolute; top:0; left:0; width:100%; }
+.commander >.version { position:absolute; top:0; left:0; }
+.commander >.rank    { position:absolute; top:0; right:0; }
+.commander >.attr    { position:absolute; bottom:9rem; left:0; }
+.commander >.solider { position:absolute; bottom:9rem; right:0; }
+.commander >.skills  { position:absolute; bottom:0rem; left:0; right:0; }
+.commander >.sn      { position:absolute; bottom:-0.5rem; right:-0rem; left:0; height:0.5rem; }
+
+.commander >.avatar {
+	text-align: center;
+}
+.commander >.avatar >.claz {
+	position:absolute;
+	top:0.25rem;
+	width:100%;
+}
+.commander >.avatar >.claz >span {
+	display:inline-block;
+	padding:0.25rem;
+	border-radius:50%;
+	
+	line-height:1;
+	
+	font-family: ui-monospace;
+	font-weight: bolder;
+	
+	color:#fff;
+	background-color:#333;
+	border:solid 1px #ccc;
+}
+.commander >.avatar >img {
+	width:8rem;
+	
+	border-radius:1rem;
+	border:1px solid #333;
+
+	transform-origin: top;
+}
+
+.commander >.name {
+	padding:1rem 0.5rem 0;
+}
+.commander >.name >ruby {
+	font-size:2rem;
+	margin:0 0.5rem 0 0;
+}
+ruby > rt {
+	font-size:40%;
+	font-family:"Arial Narrow";
+}
+
+.commander >.name {
+	padding:0.5rem 0.5rem 0;
+}
+.commander >.name >.title {
+	font-size:1.75rem;
+	margin:0 0.25rem 0 0;
+}
+.commander >.name >.pinyin {
+	font-size:1rem;
+	font-family:"Arial Narrow";
+}
+
+.version {
+	text-align:center;
+    margin: 0.25rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    border: double 4px #000;
+}
+
+.rank {
+	text-align:center;
+}
+
+.rank >.value {
+    font-family:sans-serif;
+
+	height:1.75rem;
+    width:1.75rem;
+    padding:0.25rem 0 0;
+	margin:0.25rem;
+	
+    border-radius: 0.5rem;
+    background: #ccc;
+}
+.rank >.progress {
+	display:none;
+}
+
+
+.attr >.off:before { content:"⚔️"; }
+.attr >.def:before { content:"🛡️"; }
+.attr >div:before {
+	float:left;
+	filter:grayscale(1);
+}
+
+.solider >.h:before { content:"🐴"; }
+.solider >.s:before { content:"🔱"; }
+.solider >.b:before { content:"🏹"; }
+.solider >div:before {
+	float:left;
+	filter:grayscale(1);
+}
+
+.commander >.attr {
+    padding:0.5rem;
+}
+.commander >.attr >div {
+	display:inline-block;
+    width:4.25rem;
+}
+.commander >.attr >div >.decimal {
+	font-size:0.5em;
+	opacity:0.8;
+}
+
+.commander >.solider {
+    padding:0.5rem;
+    text-align:right;
+}
+
+.commander >.skills >.skill {
+	font-size:0.75rem;
+	height:3rem;
+	padding:0 0.25rem;
+	border-width:1px 0 0;
+	
+	overflow-y:auto;
+	text-align:justify;
+	
+	border-style:solid;
+	border-color:rgba(0, 0, 0, 0.5);
+	background-color:#ccc;
+}
+.commander >.skills >.skill >.desc:before {
+	content:'●';
+	color:transparent;
+}
+.commander >.skills >.skill[domain="o"]  >.desc:before { color:#900; }
+.commander >.skills >.skill[domain="m"]  >.desc:before { color:#090; }
+.commander >.skills >.skill[domain="d"]  >.desc:before { color:#009; }
+.commander >.skills >.skill[domain="om"] >.desc:before { color:#990; }
+.commander >.skills >.skill[domain="dm"] >.desc:before { color:#099; }
+.commander >.skills >.skill[domain="od"] >.desc:before { color:#909; }
+
+.commander >.sn {
+}
+.commander >.sn >span {
+	font-family:monospace;
+	
+	transform:scale(0.4);
+	transform-origin:right top;
+	float:right;
+	
+	color:#ccc;
+}

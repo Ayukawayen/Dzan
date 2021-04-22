@@ -1,0 +1,6 @@
+#output {
+	min-height:3rem;
+    padding: 0 0.5rem;
+	border: solid 1px #000;
+    color: #666;
+}
