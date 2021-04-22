@@ -2,7 +2,7 @@
 
 Vue.component('v_commander', {
 	template: `
-		<div v-if="c.id" class="commander">
+		<div v-if="c.id" class="commander" :notGroup="!c.isGroup">
 			<div class="version">α1</div>
 			
 			<div class="avatar">

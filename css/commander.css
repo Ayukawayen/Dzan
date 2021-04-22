@@ -21,7 +21,7 @@ main {
 
 .commander {
 	display:inline-block;
-	margin:1rem 0 0;
+	margin:1rem 0.5rem 0;
 
 	vertical-align: middle;
 }

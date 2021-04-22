@@ -19,8 +19,9 @@ const S = {
 		'o', 'om', 'm',
 	],
 };
-function Commander(id, name) {
+function Commander(id, name, isGroup) {
 	this.id = id;
+	this.isGroup = isGroup;
 	
 	let buf = name.split(' (');
 	
