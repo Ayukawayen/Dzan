@@ -27,7 +27,7 @@ function Commander(id, name) {
 	this.name = buf[0];
 	this.pinyin = buf[1] ? buf[1].split(')')[0] : '';
 	
-	this.avatar = blockies.create({ seed:id, size:10, scale:16}).toDataURL();
+	this.avatar = blockies.create({ seed:id, size:7, scale:16}).toDataURL();
 	this.rank = '0';
 	
 	buf = parseInt(id.substr(2,4), 16) >> 1;

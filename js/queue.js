@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-var PurchaseAddr = 'bitcoincash:qz7emkw20efhw8xzeu3053qk893e85ewrgquft2snh';
+var PurchaseAddr = 'bitcoincash:qp265kvj3ma6f9u5qjfgejtskgfqqdx77vh2vges9e';
 
 getPurchaseUtxos();
 
