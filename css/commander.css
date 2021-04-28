@@ -178,6 +178,9 @@ ruby > rt {
 .commander >.skills >.skill >.desc:before {
 	content:'●';
 	color:transparent;
+	
+	font-size:0.6rem;
+	padding:0.05rem 0.1rem 0 0.05rem;
 }
 .commander >.skills >.skill[domain="o"]  >.desc:before { color:#900; }
 .commander >.skills >.skill[domain="m"]  >.desc:before { color:#090; }

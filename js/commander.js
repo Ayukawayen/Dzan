@@ -1,4 +1,4 @@
-'use strict';
+﻿'use strict';
 
 const S = {
 	ClazWeight: 5461,
@@ -7,6 +7,10 @@ const S = {
 	],
 	ClazIcons: [
 		'🦄', '🐲', '愛', '義', '🌙', '☀️', '🌈',
+	],
+	
+	SoliClazs:[
+		'騎兵','槍兵','弓兵',
 	],
 	
 	SoliWeight: 259,
@@ -18,6 +22,366 @@ const S = {
 	Domains: [
 		'o', 'om', 'm',
 	],
+	
+	SkillFirstConds: {
+		'3':(soli)=>(soli[2]>= 850),
+		'2':(soli)=>(soli[1]>=1100),
+		'1':(soli)=>(soli[0]>=1600),
+		'0':(soli)=>(true),
+	},
+	SkillFirstWeights: {
+		'3':28176,
+		'2':18426,
+		'1':10964,
+		'0':0,
+	},
+	SkillFirsts: {
+		'3':[{
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+38.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+38.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+38.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+19.0%、🔥+19.0';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+19.0%、🔥+19.0';
+				}
+				return `當${commander.unitName[lang]}的所有兵種均在850人以上：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+88.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+88.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+88.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+44.0%、🔥+44.0';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+44.0%、🔥+44.0';
+				}
+				return `當${commander.unitName[lang]}的所有兵種均在850人以上：${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}得到${effect}`;
+			},
+		},],
+		'2':[{
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+36.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+36.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+36.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+18.0%、🔥+18.0';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+18.0%、🔥+18.0';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1100人以上且${S.SoliClazs[commander.claz[1]]}1100人以上：${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}與${S.SoliClazs[commander.claz[1]]}得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+57.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+57.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+57.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+28.5%、🔥+28.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+28.5%、🔥+28.5';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1100人以上且${S.SoliClazs[commander.claz[1]]}1100人以上：${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.2%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.2%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.2%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.6%、🔥+3.6%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.6%、🔥+3.6%';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1100人以上且${S.SoliClazs[commander.claz[1]]}1100人以上：軍團${S.SoliClazs[commander.claz[0]]}與${S.SoliClazs[commander.claz[1]]}加成${effect}`;
+			},
+		},],
+		'1':[{
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1600人以上：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+10.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+10.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+10.0%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+5.0%、🔥+5.0%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+5.0%、🔥+5.0%';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1600人以上：軍團${S.SoliClazs[commander.claz[1]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.8%、🔥+3.8%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.8%、🔥+3.8%';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1600人以上：軍團${S.SoliClazs[commander.claz[0]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+6.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+6.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+6.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.3%、🔥+3.3%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.3%、🔥+3.3%';
+				}
+				return `當${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}1600人以上：軍團所有兵種加成${effect}`;
+			},
+		},],
+	},
+	SkillSecondWeight: 5958,
+	SkillSecond:[{
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `當${commander.unitName[lang]}佈陣於左軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `當${commander.unitName[lang]}佈陣於右軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `當${commander.unitName[lang]}佈陣於前軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `當${commander.unitName[lang]}佈陣於後軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.8%、🔥+3.8%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.8%、🔥+3.8%';
+				}
+				return `當${commander.unitName[lang]}佈陣於中軍：軍團${S.SoliClazs[commander.claz[0]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.2%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.2%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.2%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.6%、🔥+3.6%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.6%、🔥+3.6%';
+				}
+				return `當${commander.unitName[lang]}佈陣於中軍：軍團${S.SoliClazs[commander.claz[0]]}與${S.SoliClazs[commander.claz[1]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+6.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+6.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+6.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.3%、🔥+3.3%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.3%、🔥+3.3%';
+				}
+				return `當${commander.unitName[lang]}佈陣於中軍：軍團所有兵種加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.8%、🔥+3.8%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.8%、🔥+3.8%';
+				}
+				return `當軍團${S.SoliClazs[commander.claz[0]]}8000人以上：軍團${S.SoliClazs[commander.claz[0]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+7.2%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+7.2%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+7.2%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.6%、🔥+3.6%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.6%、🔥+3.6%';
+				}
+				return `當軍團${S.SoliClazs[commander.claz[0]]}5500人以上且${S.SoliClazs[commander.claz[1]]}5500人以上：軍團${S.SoliClazs[commander.claz[0]]}與${S.SoliClazs[commander.claz[1]]}加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+6.6%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+6.6%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+6.6%';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+3.3%、🔥+3.3%';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+3.3%、🔥+3.3%';
+				}
+				return `當軍團所有兵種4250人以上：軍團所有兵種加成${effect}`;
+			},
+		}, {
+			code:'',
+			desc:(commander, lang)=>{
+				let effect = '';
+				if(commander.domain == 'o') {
+					effect = '⚔️+33.0%';
+				} else if(commander.domain == 'd') {
+					effect = '🛡️+33.0%';
+				} else if(commander.domain == 'm') {
+					effect = '🔥+33.0';
+				} else if(commander.domain == 'om') {
+					effect = '⚔️+16.5%、🔥+16.5';
+				} else if(commander.domain == 'dm') {
+					effect = '🛡️+16.5%、🔥+16.5';
+				}
+				return `${commander.unitName[lang]}的${S.SoliClazs[commander.claz[0]]}得到${effect}`;
+			},
+	},],
 };
 function Commander(id, name, isGroup) {
 	this.id = id;
@@ -27,6 +391,11 @@ function Commander(id, name, isGroup) {
 	
 	this.name = buf[0];
 	this.pinyin = buf[1] ? buf[1].split(')')[0] : '';
+	
+	this.unitName = {
+		zhtw: this.name.replace(' ','') + '營',
+		en: this.pinyin + ' Brigade',
+	};
 	
 	this.avatar = blockies.create({ seed:id, size:7, scale:16}).toDataURL();
 	this.rank = '0';
@@ -39,13 +408,15 @@ function Commander(id, name, isGroup) {
 
 	buf = parseInt(id.substr(5,5), 16) & 0x1ffff;
 
+	let soli;
 	this.solider = [];
 	if(!this.claz) {
+		soli = [1000,1000,1000];
 		this.solider = [1000,1000,1000];
 	} else {
-		let solis = S.Solis[Math.floor(buf/S.SoliWeight)];
+		soli = S.Solis[Math.floor(buf/S.SoliWeight)];
 		for(let i=0;i<3;++i) {
-			this.solider[ this.claz[i] ] = solis[i];
+			this.solider[ this.claz[i] ] = soli[i];
 		}
 	}
 	
@@ -59,12 +430,33 @@ function Commander(id, name, isGroup) {
 	buf = parseInt(id.substr(15,3), 16);
 
 	this.domain = S.Domains[Math.floor(buf/S.DomainWeight)];
-	if(this.attr.off < 62.5) {
-		this.domain.replace('o','d');
+
+	if(this.attr.off < 6250) {
+		this.domain = this.domain.replace('o','d');
+	}
+	
+	let s;
+	for(s=3;s>0;--s) {
+		if( S.SkillFirstConds[s](soli) ) break;
+	}
+
+	buf = parseInt(id.substr(18,4), 16);
+
+	let sk;
+	if(s>0) {
+		let s1 = Math.floor(buf/S.SkillFirstWeights[s]);
+		if(s1 < S.SkillFirsts[s].length) {
+			sk = S.SkillFirsts[s][s1];
+		}
+	}
+	
+	if(!sk) {
+		buf = parseInt(id.substr(22,4), 16);
+		sk = S.SkillSecond[ Math.floor(buf/S.SkillSecondWeight) ];
 	}
 	
 	this.skills = [
-		new Skill(this.domain, {zhtw:'待定',en:'TDB'} ),
+		new Skill(this.domain, {zhtw:sk.desc(this, 'zhtw'), en:'TDB'} ),
 		new Skill(),
 		new Skill(),
 	];
