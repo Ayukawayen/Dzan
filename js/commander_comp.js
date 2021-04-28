@@ -37,7 +37,7 @@ Vue.component('v_commander', {
 				</div>
 			</div>
 			
-			<div class="sn"><span>#{{ c.id }}</span></div>
+			<div class="sn"><span>#{{ c.id }}.</span></div>
 		</div>
 	`,
 	
