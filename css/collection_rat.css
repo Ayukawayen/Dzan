@@ -15,3 +15,14 @@
 .items >div >h3 {
 	font-size: 1rem;
 }
+
+.items >div .wrapper {
+	display: inline-block;
+	
+	width:128px;
+	height:128px;
+}
+
+.items >div .wrapper >img:hover {
+	opacity:0;
+}

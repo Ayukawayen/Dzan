@@ -15,8 +15,10 @@
 			</div>
 			<div class="items">
 				<div v-for="c in commanders" :key="c.tokenIdHex">
-					<img :src="'https://cryptor.at/128/' + c.tokenIdHex" />
-					<h3><a :href="'https://cryptor.at/rat/id/' + c.tokenIdHex">{{ c.name }}</a></h3>
+					<div class="wrapper" :style="{backgroundImage:`url(https://icons.waifufaucet.com/128/${c.tokenIdHex}.png)`}">
+						<img :src="`https://cryptor.at/128/${c.tokenIdHex}`" />
+					</div>
+					<h3><a :href="`https://cryptor.at/rat/id/${c.tokenIdHex}`">{{ c.name }}</a></h3>
 				</div>
 			</div>
 		</main>
