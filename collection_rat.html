@@ -1,0 +1,31 @@
+﻿<!doctype html>
+	<head> 
+		<title>Dzan (Alpha-1)</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="image/icon_rat.png" />
+		<link rel="stylesheet" type="text/css" href="css/commander.css" />
+		<link rel="stylesheet" type="text/css" href="css/collection_rat.css" />
+	</head>
+	<body>
+		<main>
+			<div>
+				<input id="address" type="text" placeholder="simpleledger:......" width="30" />
+				<button onclick="onSubmit();">Submit</button>
+			</div>
+			<div class="items">
+				<div v-for="c in commanders" :key="c.tokenIdHex">
+					<img :src="'https://cryptor.at/128/' + c.tokenIdHex" />
+					<h3><a :href="'https://cryptor.at/rat/id/' + c.tokenIdHex">{{ c.name }}</a></h3>
+				</div>
+			</div>
+		</main>
+	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="js/blockies.js"></script>
+	<script src="js/commander.js"></script>
+	<script src="js/commander_comp.js"></script>
+	<script src="js/collection_commander_comp.js"></script>
+	<script src="js/collection_rat_main.js"></script>
+</html>
