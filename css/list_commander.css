@@ -1,0 +1,59 @@
+.commanders {
+	min-width:60%;
+	margin:1rem auto;
+	
+	text-align:right;
+	border-spacing:0;
+}
+
+.commanders tr {
+}
+.commanders tr:hover {
+	background-color:#cfc;
+}
+.commanders tbody td, .commanders tbody th {
+    padding: 0.25rem 0.5rem;
+	
+	border-style:solid;
+	border-width:2px 0 0 0;
+	border-color:#999;
+}
+
+.commanders thead {
+	text-align:center;
+}
+
+.commanders thead .sort {
+	cursor:default;
+}
+
+.commanders tbody th {
+	text-align:left;
+}
+.commanders tbody th >.pinyin {
+	font-size:0.75rem;
+	margin:0 0 0 0.25rem;
+}
+.commanders tbody td >.decimal {
+	font-size:0.5em;
+	opacity:0.8;
+}
+
+.commanders tbody td.skills >.skill >.desc {
+	font-size:0.75rem;
+	
+	text-align:left;
+}
+.commanders tbody td.skills >.skill >.desc:before {
+	content:'●';
+	color:transparent;
+	
+	font-size:0.6rem;
+	padding:0.05rem 0.1rem 0 0.05rem;
+}
+.commanders tbody td.skills >.skill[domain="o"]  >.desc:before { color:#900; }
+.commanders tbody td.skills >.skill[domain="m"]  >.desc:before { color:#090; }
+.commanders tbody td.skills >.skill[domain="d"]  >.desc:before { color:#009; }
+.commanders tbody td.skills >.skill[domain="om"] >.desc:before { color:#990; }
+.commanders tbody td.skills >.skill[domain="dm"] >.desc:before { color:#099; }
+.commanders tbody td.skills >.skill[domain="od"] >.desc:before { color:#909; }
