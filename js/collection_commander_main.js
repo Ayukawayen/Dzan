@@ -56,17 +56,6 @@ function loadCommanders() {
 	});
 }
 
-function post(url, data, cb, extra) {
-	var xhr=new XMLHttpRequest();
-	xhr.onreadystatechange=function(){
-		if (this.readyState!=4 || this.status!=200) return;
-		
-		cb(JSON.parse(this.responseText), extra);
-	}
-	xhr.open('POST', url, true);
-	xhr.setRequestHeader('Content-Type', 'application/json');
-	xhr.send(data);
-}
 function fetch(url, cb, extra) {
 	var xhr=new XMLHttpRequest();
 	xhr.onreadystatechange=function(){
