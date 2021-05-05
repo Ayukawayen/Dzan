@@ -28,6 +28,7 @@
 
 .formation .unit >.name .pinyin {
 	font-size:0.75em;
+	font-family: "Arial Narrow";
 }
 
 .formation .unit .subUnits {
