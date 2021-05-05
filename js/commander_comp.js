@@ -32,8 +32,8 @@ Vue.component('v_commander', {
 				
 			
 			<div class="skills">
-				<div class="skill" v-for="skill in c.skills" :domain="skill.domain">
-					<div class="desc">{{ descLang(skill.desc) }}</div>
+				<div class="skill" v-for="skill in c.skills" :domain="skDomain(c, skill)">
+					<div class="desc">{{ skDesc(c, skill) }}</div>
 				</div>
 			</div>
 			
@@ -44,8 +44,13 @@ Vue.component('v_commander', {
 	props: ['c'],
 
 	methods: {
-		descLang: function(desc) {
-			return desc[g.lang || 'zhtw'];
+		skDomain: function(cmdr, skill) {
+			if(!skill) return '';
+			return cmdr.domain;
+		},
+		skDesc: function(cmdr, skill) {
+			if(!skill) return '';
+			return skill.desc(cmdr, g.lang || 'zhtw');
 		},
 		attrHtml: function(value) {
 			value = ''+value;

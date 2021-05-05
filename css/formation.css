@@ -1,0 +1,103 @@
+.formation {
+}
+
+.formation .unit {
+	min-width: 24.5rem;
+	height:4.5rem;
+    margin:0.5rem 0;
+	border:solid 1px #333;
+	
+	text-align: left;
+}
+
+.formation .unit >div {
+	display:inline-block;
+	height:100%;
+	vertical-align: middle;
+}
+
+.formation .unit >.name {
+	width:5.5rem;
+	padding:0.5rem 0.5rem 0;
+	
+	text-align: center;
+	
+	background-color:#333;
+	color:#fff;
+}
+
+.formation .unit >.name .pinyin {
+	font-size:0.75em;
+}
+
+.formation .unit .subUnits {
+	width: 18.5rem;
+	padding: 0.25rem 0 0;
+}
+.formation .unit .subUnits .subUnit {
+}
+.formation .unit .subUnits .subUnit >div {
+	display:inline-block;
+}
+
+.subUnit {
+}
+
+.subUnit[s='h'] >.amount:before { content:"🐴"; } 
+.subUnit[s='s'] >.amount:before { content:"🔱"; } 
+.subUnit[s='b'] >.amount:before { content:"🏹"; }
+.subUnit >.amount:before {
+	float:left;
+	filter:grayscale(1);
+}
+
+.subUnit >.amount {
+	width: 5rem;
+	padding:0 0.5rem;
+	
+	text-align:right;
+}
+.subUnit .attrs >.attr {
+	display:inline-block;
+	
+	width:4.25rem;
+	
+	text-align:right;
+}
+
+.subUnit .attrs >.off:before { content:"⚔️"; }
+.subUnit .attrs >.def:before { content:"🛡️"; }
+.subUnit .attrs >.mor:before { content:"🔥"; }
+.subUnit .attrs >.attr:before {
+	float:left;
+	filter:grayscale(1);
+}
+
+.formation .unit .skills {
+	display:none;
+	
+	font-size:0.75rem;
+}
+
+
+.formation .unit.summary .subUnits {
+	width:6.5rem;
+}
+.summary .stats {
+	padding:0.25rem 0 0;
+}
+.summary .stats .stat {
+	padding:0.5rem 0 0;
+}
+.summary .stats .stat .title {
+    display: inline-block;
+	width: 4.5rem;
+}
+.summary .stats .stat .value {
+	
+}
+
+.decimal {
+	font-size:0.5em;
+	opacity:0.8;
+}

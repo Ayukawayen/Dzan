@@ -1,5 +1,8 @@
 ﻿'use strict';
 
+var onCommanderClick = function(cid) {
+}
+
 Vue.component('v_commander_list', {
 	template: `
 		<table class="commanders">
@@ -16,7 +19,7 @@ Vue.component('v_commander_list', {
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="c in cmdrs" :key="c.id">
+				<tr v-for="c in cmdrs" :key="c.id" @click="onCmdrClick(c.id)">
 					<th><span class="title">{{ c.name }}</span><span class="pinyin">({{ c.pinyin }})</span></th>
 					<td>{{c.rank}}</td>
 					<td v-html="attrHtml(c.attr.off)"></td>
@@ -25,8 +28,8 @@ Vue.component('v_commander_list', {
 					<td>{{c.solider[1]}}</td>
 					<td>{{c.solider[2]}}</td>
 					<td class="skills">
-						<div class="skill" v-for="skill in c.skills" :domain="skill.domain">
-							<div class="desc">{{ descLang(skill.desc) }}</div>
+						<div class="skill" v-for="skill in c.skills" :domain="skDomain(c, skill)">
+							<div class="desc">{{ skDesc(c, skill) }}</div>
 						</div>
 					</td>
 				</tr>
@@ -37,8 +40,13 @@ Vue.component('v_commander_list', {
 	props: ['cmdrs'],
 
 	methods: {
-		descLang: function(desc) {
-			return desc[g.lang || 'zhtw'];
+		skDomain: function(cmdr, skill) {
+			if(!skill) return '';
+			return cmdr.domain;
+		},
+		skDesc: function(cmdr, skill) {
+			if(!skill) return '';
+			return skill.desc(cmdr, g.lang || 'zhtw');
 		},
 		attrHtml: function(value) {
 			value = ''+value;
@@ -62,6 +70,9 @@ Vue.component('v_commander_list', {
 				if(evalue(a) < evalue(b)) return direct*-1;
 				return 0;
 			});
+		},
+		onCmdrClick: function(cid) {
+			onCommanderClick(cid);
 		},
 	},
 });

@@ -4,6 +4,7 @@ const GroupTokenId = '11b4a01480bfd5bc15307595fec8e57840fce86d49f4e13c4560195ce9
 
 let g = {
 	commanders:[],
+	formation:new Formation(),
 };
 
 g.lang = 'zhtw';
@@ -13,9 +14,22 @@ new Vue({
 	data: {data:g},
 	computed: {
 		commanders:function() { return g.commanders; },
+		formation:function() { return g.formation; },
 	},
 });
 
+onCommanderClick = function(cid) {
+	let commander;
+	for(let i=0; i<g.commanders.length; ++i) {
+		if(g.commanders[i].id == cid) {
+			commander = g.commanders[i];
+			break;
+		}
+	}
+	if(!commander) return;
+	
+	g.formation.appendCommander(commander);
+}
 
 
 loadCommanders();

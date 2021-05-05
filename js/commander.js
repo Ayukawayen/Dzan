@@ -861,17 +861,12 @@ function Commander(id, name, isGroup) {
 	}
 	
 	this.skills = [
-		new Skill(this.domain, {zhtw:sk.desc(this, 'zhtw'), en:'TDB'} ),
-		new Skill(),
-		new Skill(),
+		sk,
+		null,
+		null,
 	];
 	
 	buf = parseInt(id.substr(56,2), 16);
 
 	this.avatarScale = [ 0.796+buf/1250, 1-buf/1250 ];
-}
-
-function Skill(domain, desc) {
-	this.domain = domain || '';
-	this.desc = desc || '';
 }
