@@ -189,6 +189,10 @@ ruby > rt {
 .commander >.skills >.skill[domain="dm"] >.desc:before { color:#099; }
 .commander >.skills >.skill[domain="od"] >.desc:before { color:#909; }
 
+.commander >.skills >.skill >.desc {
+	line-height:1.2;
+}
+
 .commander >.sn {
 }
 .commander >.sn >span {
