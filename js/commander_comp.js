@@ -32,7 +32,7 @@ Vue.component('v_commander', {
 				
 			
 			<div class="skills">
-				<div class="skill" v-for="skill in c.skills" :domain="skDomain(c, skill)">
+				<div class="skill" v-for="skill in c.skills" :domain="skDomain(skill)">
 					<div class="desc">{{ skDesc(c, skill) }}</div>
 				</div>
 			</div>
@@ -44,9 +44,9 @@ Vue.component('v_commander', {
 	props: ['c'],
 
 	methods: {
-		skDomain: function(cmdr, skill) {
+		skDomain: function(skill) {
 			if(!skill) return '';
-			return cmdr.domain;
+			return skill.domain;
 		},
 		skDesc: function(cmdr, skill) {
 			if(!skill) return '';
