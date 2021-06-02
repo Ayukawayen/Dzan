@@ -57,7 +57,7 @@ Vue.component('v_commander_list', {
 		sort: function(by, direct) {
 			let evalue = (c)=>{
 				if(by=='off') return c.attr.off;
-				if(by=='def') return c.attr.off;
+				if(by=='def') return c.attr.def;
 				if(by=='h') return c.solider[0];
 				if(by=='s') return c.solider[1];
 				if(by=='b') return c.solider[2];
