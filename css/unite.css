@@ -1,0 +1,22 @@
+.commanderWrapper {
+	display: inline-block;
+	
+	margin: 0 0.5rem;
+	
+	vertical-align: top;
+}
+
+.commanderWrapper >h2 {
+	margin:0;
+}
+
+.guide {
+	margin:1rem 0;
+}
+
+.guide >input {
+	width: 30rem;
+	
+	text-align: center;
+}
+

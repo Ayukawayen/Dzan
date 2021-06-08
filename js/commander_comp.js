@@ -2,7 +2,7 @@
 
 Vue.component('v_commander', {
 	template: `
-		<div v-if="c.id" class="commander" :notGroup="!c.isGroup">
+		<div v-if="c.id" :class="nodeClass()">
 			<div class="version">α1</div>
 			
 			<div class="avatar">
@@ -24,9 +24,9 @@ Vue.component('v_commander', {
 			</div>
 			
 			<div class="solider">
-				<div class="h">{{c.solider[0]}}</div>
-				<div class="s">{{c.solider[1]}}</div>
-				<div class="b">{{c.solider[2]}}</div>
+				<div class="h">{{ soliderValue(c.solider[0]) }}</div>
+				<div class="s">{{ soliderValue(c.solider[1]) }}</div>
+				<div class="b">{{ soliderValue(c.solider[2]) }}</div>
 			</div>
 			
 				
@@ -43,7 +43,12 @@ Vue.component('v_commander', {
 	
 	props: ['c'],
 
+	filters: {
+	},
 	methods: {
+		nodeClass: function() {
+			return 'commander' + (this.c.isStaff ? ' staff' : '');
+		},
 		skDomain: function(skill) {
 			if(!skill) return '';
 			return skill.domain;
@@ -53,10 +58,29 @@ Vue.component('v_commander', {
 			return skill.desc(cmdr, g.lang || 'zhtw');
 		},
 		attrHtml: function(value) {
-			value = ''+value;
-			let l = value.length - 2;
-			return value.substr(0,l) + '<span class="decimal">.' + value.substr(l) + '</span>';
+			let result = attrSignedText(value);
+			if(!this.c.isStaff) {
+				result = result.replace('+', '');
+			}
+			return result;
+		},
+		soliderValue: function(value) {
+			if(this.c.isStaff && value >= 0) return '+' + value;
+			return value;
 		},
 	},
 });
 
+function attrSignedText(value) {
+	if(value < 0) {
+		return attrSignedText(value*-1).replace('+','-');
+	}
+	
+	value = value.toString();
+	if(value.length < 3) {
+		value = '0'.repeat(3-value.length) + value;
+	}
+	let l = value.length - 2;
+	
+	return '+' + value.substr(0,l) + '<span class="decimal">.' + value.substr(l) + '</span>';
+}

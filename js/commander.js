@@ -40,11 +40,9 @@ const S = {
 		'1':10964,
 		'0':0,
 	},
-	SkillEffect: (value, owner, commander, lang)=>{
+	SkillEffect: (value, owner, lang)=>{
 		value /= owner.domain.length;
-		if(owner.id != commander.id) {
-			value /= 2;
-		}
+
 		value = value.toString();
 		value = value.slice(0,-2) + '.' + value.slice(-2);
 		
@@ -58,9 +56,10 @@ const S = {
 	},
 	SkillFirsts: {
 		'3':[(owner)=>({
+			value: 3800,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3800, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的所有兵種均在850人以上：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, pos)=>{
@@ -69,16 +68,14 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 3800 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<3;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -86,9 +83,10 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 8800,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(8800, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的所有兵種均在850人以上：${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}得到${effect}`;
 			},
 			
@@ -98,16 +96,14 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 8800 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<1;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -116,9 +112,10 @@ const S = {
 
 		}),],
 		'2':[(owner)=>({
+			value: 3600,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3600, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1100人以上且${S.SoliClazs[owner.claz[1]]}1100人以上：${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}與${S.SoliClazs[owner.claz[1]]}得到${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -127,16 +124,14 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 3600 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<2;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -144,9 +139,10 @@ const S = {
 			},
 
 		}), (owner)=>({
+			value: 5700,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(5700, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1100人以上且${S.SoliClazs[owner.claz[1]]}1100人以上：${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}得到${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -155,16 +151,14 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 5700 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<1;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -172,9 +166,10 @@ const S = {
 			},
 
 		}), (owner)=>({
+			value: 720,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(720, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1100人以上且${S.SoliClazs[owner.claz[1]]}1100人以上：軍團${S.SoliClazs[owner.claz[0]]}與${S.SoliClazs[owner.claz[1]]}加成${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -183,9 +178,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 720 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -193,7 +186,7 @@ const S = {
 				for(let c=0;c<2;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -202,9 +195,10 @@ const S = {
 
 		}),],
 		'1':[(owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1600人以上：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -213,16 +207,14 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<1;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -230,9 +222,10 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 1000,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(1000, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1600人以上：軍團${S.SoliClazs[owner.claz[1]]}加成${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -241,25 +234,24 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 1000 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
 				
 					result['army'][owner.claz[1]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[1] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[1] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				
 				return result;
 			},
 
 		}), (owner)=>({
+			value: 760,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(760, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1600人以上：軍團${S.SoliClazs[owner.claz[0]]}加成${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -268,9 +260,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 760 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -278,7 +268,7 @@ const S = {
 				for(let c=0;c<1;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -286,9 +276,10 @@ const S = {
 			},
 
 		}), (owner)=>({
+			value: 660,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(660, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}1600人以上：軍團所有兵種加成${effect}`;
 			},
 			verify:(commander, army, position)=>{
@@ -297,9 +288,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 660 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -307,7 +296,7 @@ const S = {
 				for(let c=0;c<3;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -318,24 +307,23 @@ const S = {
 	},
 	SkillSecondWeight: 5958,
 	SkillSecond:[(owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於左軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 0;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<3;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -343,24 +331,23 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於右軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 4;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<3;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -368,24 +355,23 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於前軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 1;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<3;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -393,24 +379,23 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於後軍：${commander.unitName[lang]}的所有士兵得到${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 3;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<3;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -418,17 +403,16 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 760,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(760, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於中軍：軍團${S.SoliClazs[owner.claz[0]]}加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 2;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 760 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -436,7 +420,7 @@ const S = {
 				for(let c=0;c<1;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -444,17 +428,16 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 720,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(720, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於中軍：軍團${S.SoliClazs[owner.claz[0]]}與${S.SoliClazs[owner.claz[1]]}加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 2;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 720 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -462,7 +445,7 @@ const S = {
 				for(let c=0;c<2;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -470,17 +453,16 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 660,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(660, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當${commander.unitName[lang]}佈陣於中軍：軍團所有兵種加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
 				return pos == 2;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 660 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -488,7 +470,7 @@ const S = {
 				for(let c=0;c<3;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -496,9 +478,10 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 760,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(760, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當軍團${S.SoliClazs[owner.claz[0]]}8000人以上：軍團${S.SoliClazs[owner.claz[0]]}加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
@@ -507,9 +490,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 760 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -517,7 +498,7 @@ const S = {
 				for(let c=0;c<1;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -525,9 +506,10 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 720,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(720, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當軍團${S.SoliClazs[owner.claz[0]]}5500人以上且${S.SoliClazs[owner.claz[1]]}5500人以上：軍團${S.SoliClazs[owner.claz[0]]}與${S.SoliClazs[owner.claz[1]]}加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
@@ -536,9 +518,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 720 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -546,7 +526,7 @@ const S = {
 				for(let c=0;c<2;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -554,9 +534,10 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 660,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(660, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `當軍團所有兵種4250人以上：軍團所有兵種加成${effect}`;
 			},
 			verify:(commander, army, pos)=>{
@@ -565,9 +546,7 @@ const S = {
 				}
 				return true;
 			},
-			effect:(commander, army, pos)=>{
-				let value = 660 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {
 					army:{},
 				};
@@ -575,7 +554,7 @@ const S = {
 				for(let c=0;c<3;++c) {
 					result['army'][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result['army'][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result['army'][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -583,24 +562,23 @@ const S = {
 			},
 			
 		}), (owner)=>({
+			value: 3300,
 			domain: owner.domain,
-			desc:(commander, lang)=>{
-				let effect = S.SkillEffect(3300, owner, commander, lang);
+			desc: function(commander, lang) {
+				let effect = S.SkillEffect(this.value, owner, lang);
 				return `${commander.unitName[lang]}的${S.SoliClazs[owner.claz[0]]}得到${effect}`;
 			},
 			verify:(commander, army, position)=>{
 				return true;
 			},
-			effect:(commander, army, position)=>{
-				let value = 3300 / owner.domain.length;
-				
+			effect: function(commander, army, pos) {
 				let result = {};
 				result[pos] = {};
 				
 				for(let c=0;c<1;++c) {
 					result[pos][owner.claz[c]] = {};
 					for(let i=0;i<owner.domain.length;++i) {
-						result[pos][ owner.claz[c] ][ owner.domain[i] ] = value;
+						result[pos][ owner.claz[c] ][ owner.domain[i] ] = this.value / owner.domain.length;
 					}
 				}
 				
@@ -610,12 +588,53 @@ const S = {
 	}),],
 };
 
-function Skill(base, commander) {
+function CommanderFrom(c) {
+	let result = new Commander(c.id, c.name);
+	result.pinyin = c.pinyin;
+	
+	for(let i=0; i<c.staffs.length; ++i) {
+		result.addStaff(c.staffs[i]);
+	}
+	
+	return result;
 }
 
-function Commander(id, name, isGroup) {
+function CommanderAddStaff(commander, staff) {
+	commander.staffs.push(staff);
+	
+	commander.rank += 1;
+	
+	commander.attr.off += staff.attr.off;
+	commander.attr.def += staff.attr.def;
+	
+	for(let i=0;i<3;++i) {
+		commander.solider[i] += staff.solider[i];
+	}
+	
+	commander.skills[commander.rank] = staff.skills[0];
+}
+
+function Staff(id, name) {
+	let result = new Commander(id, name);
+	
+	result.isStaff = true;
+	
+	result.attr.off = (result.attr.off-5000) / 2;;
+	result.attr.def = (result.attr.def-5000) / 2;;
+	
+	for(let i=0;i<3;++i) {
+		result.solider[i] = (result.solider[i]-1000) / 2;
+	}
+	
+	result.skills[0].value /= 2;
+	
+	return result;
+}
+
+function Commander(id, name) {
 	this.id = id;
-	this.isGroup = isGroup;
+	
+	this.staffs = [];
 	
 	let buf = name.split(' (');
 	
@@ -628,7 +647,7 @@ function Commander(id, name, isGroup) {
 	};
 	
 	this.avatar = blockies.create({ seed:id, size:7, scale:16}).toDataURL();
-	this.rank = '0';
+	this.rank = 0;
 	
 	buf = parseInt(id.substr(2,4), 16) >> 1;
 	
@@ -694,4 +713,8 @@ function Commander(id, name, isGroup) {
 	buf = parseInt(id.substr(56,2), 16);
 
 	this.avatarScale = [ 0.796+buf/1250, 1-buf/1250 ];
+	
+	this.addStaff = function(staff){
+		CommanderAddStaff(this, staff);
+	}
 }

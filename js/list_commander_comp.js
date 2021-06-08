@@ -20,7 +20,7 @@ Vue.component('v_commander_list', {
 			</thead>
 			<tbody>
 				<tr v-for="c in cmdrs" :key="c.id" @click="onCmdrClick(c.id)">
-					<th><span class="title">{{ c.name }}</span><span class="pinyin">({{ c.pinyin }})</span></th>
+					<th><span class="title">{{ c.name }}</span><span class="pinyin">({{ c.pinyin }})</span><input type="text" class="sn" size="8" readonly="readonly" :value="c.id"></input></th>
 					<td>{{c.rank}}</td>
 					<td v-html="attrHtml(c.attr.off)"></td>
 					<td v-html="attrHtml(c.attr.def)"></td>

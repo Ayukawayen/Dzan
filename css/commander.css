@@ -204,3 +204,16 @@ ruby > rt {
 	
 	color:#ccc;
 }
+
+.commander.staff {
+	background-color:#ddd;
+}
+.commander.staff >.attr    {
+	font-size:0.75rem;
+}
+.commander.staff >.solider {
+	font-size:0.75rem;
+}
+.commander.staff >.skills >.skill {
+	background-color:#bbb;
+}

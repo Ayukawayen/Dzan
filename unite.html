@@ -1,0 +1,51 @@
+﻿<!doctype html>
+	<head> 
+		<title>Dzan (Alpha-1)</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="image/icon.png" />
+		<link rel="stylesheet" type="text/css" href="css/commander.css" />
+		<link rel="stylesheet" type="text/css" href="css/unite.css" />
+	</head>
+	<body>
+		<main>
+			<div class="commanderWrapper">
+				<h2>主將</h2>
+				<div v-if="!g.commander.id" class="commander"></div>
+				<v_commander :c="g.commander"></v_commander>
+				<div>
+					<input class="tokenId" type="text" placeholder="Token ID" width="30" onChange="loadCommander(this.value);"/>
+				</div>
+			</div>
+			<div class="commanderWrapper">
+				<h2>副將</h2>
+				<div v-if="!g.staff.id" class="commander"></div>
+				<v_commander :c="g.staff"></v_commander>
+				<div>
+					<input class="tokenId" type="text" placeholder="Token ID" width="30" onChange="loadStaff(this.value);"/>
+				</div>
+			</div>
+			<div class="commanderWrapper">
+				<h2>結果預覽</h2>
+				<div v-if="!g.unitedCommander.id" class="commander"></div>
+				<v_commander :c="g.unitedCommander" v-if="g.unitedCommander.skills.length <= 3"></v_commander>
+				<div v-if="g.unitedCommander.skills.length > 3" class="commander">編成上限尚未開放</div>
+			</div>
+			
+			<div class="guide" v-if="g.uniteAddr">
+				<div>Send both commanders to</div>
+				<input type="text" :value="g.uniteAddr" />
+				<div>and wait up to 1 hour.</div>
+			</div>
+		</main>
+	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="js/lib/jsbtc.web.min.js"></script>
+	<script src="js/lib/bchaddrjs.min.js"></script>
+	<script src="js/lib/cashaddrjs.js"></script>
+	<script src="js/blockies.js"></script>
+	<script src="js/commander.js"></script>
+	<script src="js/commander_comp.js"></script>
+	<script src="js/unite_main.js"></script>
+</html>
