@@ -1,0 +1,25 @@
+﻿<!doctype html>
+	<head> 
+		<title>Dzan (Alpha-1)</title> 
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="image/icon.png" />
+		<link rel="stylesheet" type="text/css" href="css/commander.css" />
+		<link rel="stylesheet" type="text/css" href="css/ranking.css" />
+	</head>
+	<body>
+		<main>
+			<h1>戰力排行</h1>
+			<v_ranking :type="'off'" :formations="g.formations" :ranking="g.rankings.off"></v_ranking>
+			<v_ranking :type="'def'" :formations="g.formations" :ranking="g.rankings.def"></v_ranking>
+		</main>
+	</body>
+	
+	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	<script src="js/blockies.js"></script>
+	<script src="js/commander.js"></script>
+	<script src="js/formation.js"></script>
+	<script src="js/codec.js"></script>
+	<script src="js/ranking_comp.js"></script>
+	<script src="js/ranking_main.js"></script>
+</html>

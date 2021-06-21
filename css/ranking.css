@@ -1,0 +1,38 @@
+.ranking {
+	display: inline-table;
+	font-family: monospace;
+	
+	min-width:6rem;
+	margin: 0.5rem 1rem;
+	border-collapse: collapse;
+}
+
+.ranking caption {
+	font-weight:bold;
+	font-size:1.25rem;
+	padding: 0.5rem;
+}
+.ranking tr {
+	border:solid #333 1px;
+}
+.ranking tr td {
+	padding:0.5rem;
+}
+
+.ranking .fmtn .units .unit {
+	display: inline-block;
+	width: 5rem;
+}
+
+.ranking .fmtn .units .unit .name {
+	font-family: initial;
+}
+
+.ranking .fmtn .units .unit .pinyin {
+	font-family: "Arial Narrow";
+	font-size: 0.75rem;
+}
+
+.ranking .fmtn .units .unit .statValue {
+	font-size: 0.75rem;
+}
