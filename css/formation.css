@@ -84,18 +84,25 @@
 .formation .unit.summary .subUnits {
 	width:6.5rem;
 }
-.summary .stats {
+.formation .summary .stats {
 	padding:0.25rem 0 0;
 }
-.summary .stats .stat {
+.formation .summary .stats .stat {
 	padding:0.5rem 0 0;
 }
-.summary .stats .stat .title {
+.formation .summary .stats .stat .title {
     display: inline-block;
 	width: 4.5rem;
 }
-.summary .stats .stat .value {
+.formation .summary .stats .stat .value {
 	
+}
+
+.formation .guide {
+	padding:1rem;
+	
+	background-color: #333;
+	color: #fff;
 }
 
 .decimal {

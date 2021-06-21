@@ -14,7 +14,7 @@
 				<input id="address" type="text" placeholder="simpleledger:......" width="30" />
 				<button onclick="onSubmit();">Submit</button>
 			</div>
-			<v_formation :formation="formation"></v_formation>
+			<v_formation :addr="addr" :formation="formation"></v_formation>
 			<v_commander_list :cmdrs="commanders"></v_commander_list>
 		</main>
 	</body>
@@ -23,6 +23,7 @@
 	<script src="js/blockies.js"></script>
 	<script src="js/commander.js"></script>
 	<script src="js/formation.js"></script>
+	<script src="js/codec.js"></script>
 	<script src="js/list_commander_comp.js"></script>
 	<script src="js/formation_comp.js"></script>
 	<script src="js/formation_main.js"></script>

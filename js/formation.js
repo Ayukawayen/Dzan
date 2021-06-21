@@ -104,7 +104,7 @@ Formation.prototype.setCommander = function(pos, commander) {
 }
 Formation.prototype.appendCommander = function(commander) {
 	if(this.pointer >= 5) return;
-	this.setCommander(this.pointer, commander);
+	this.setCommander(this.pointer, commander||defaultCommander() );
 	++this.pointer;
 }
 

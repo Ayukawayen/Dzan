@@ -3,7 +3,9 @@
 const GroupTokenId = '11b4a01480bfd5bc15307595fec8e57840fce86d49f4e13c4560195ce9d0614e';
 const StaffGroupTokenId = '9d4e6b7b75f388098ffda2c388a9b21995f49c94f31bf579855b1f61a3704092';
 
+
 let g = {
+	addr:'',
 	commanders:[],
 	formation:new Formation(),
 };
@@ -16,12 +18,14 @@ new Vue({
 	el: 'main',
 	data: {data:g},
 	computed: {
+		addr:function() { return g.addr; },
 		commanders:function() { return g.commanders; },
 		formation:function() { return g.formation; },
 	},
 });
 
-onCommanderClick = function(cid) {
+
+function onCommanderClick(cid) {
 	let commander;
 	for(let i=0; i<g.commanders.length; ++i) {
 		if(g.commanders[i].id == cid) {
@@ -82,6 +86,8 @@ function loadCommanders() {
 	let addr = location.hash ? location.hash.substr(1) : null;
 	
 	if(!addr) return;
+	
+	g.addr = addr;
 	
 	let query = {
 		"v": 3,

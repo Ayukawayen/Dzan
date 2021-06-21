@@ -42,10 +42,16 @@ Vue.component('v_formation', {
 					<div class="stat"><span class="title">守勢作戰</span><span class="value" v-html="statHtml(formation.stat.def)"></span></div>
 				</div>
 			</div>
+			<div class="guide" v-if="formation.commanders.length >= 5">
+				To submit this formation,
+				send 546 satoshis to <input type="text" readonly="readonly" :value="addr" />
+				from <input type="text" readonly="readonly" :value="addr" /> (the same address)
+				with OP_RETURN <input type="text" readonly="readonly" :value="encodeFormation()" /> (hex).
+			</div>
 		</div>
 	`,
 	
-	props: ['formation'],
+	props: ['addr', 'formation'],
 	
 	filters: {
 		soliderClaz: function(value) {
@@ -73,6 +79,26 @@ Vue.component('v_formation', {
 		},
 		onResetClick: function() {
 			this.formation.reset();
+		},
+		
+		encodeFormation: function() {
+			if(this.formation.commanders.length < 5) return '';
+			
+			let pinyins = this.formation.commanders.map((c)=>(c.pinyin));
+			let code = Codec.encodeCommanders(pinyins);
+			code = code.split('').map((c)=>(c.charCodeAt(0).toString(16))).join('');
+
+			return '04534c5000'
+				+ '0101'
+				+ '0747454e45534953'
+				+ '0C447A616E466D746E20CEB131'
+				+ '14' + code
+				+ '4c00'
+				+ '4c00'
+				+ '0100'
+				+ '4c00'
+				+ '080000000000000000'
+			;
 		},
 	},
 });
